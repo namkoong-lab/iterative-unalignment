@@ -1,0 +1,15 @@
+name: rare
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - accelerate==1.10.1
+      - huggingface-hub==0.35.1
+      - numpy==2.3.3
+      - peft==0.17.1
+      - pymbar==4.0.3
+      - torch==2.8.0
+      - tqdm==4.67.1
+      - transformers==4.57.3

@@ -1,0 +1,33 @@
+# Model weights and checkpoints
+*.safetensors
+*.bin
+*.pt
+*.pth
+*checkpoint*/
+*finetuned*/
+
+# Local run outputs
+/runs/
+output/
+logs/
+results/
+*.log
+*.pkl
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+/methods/tests/
+/tests/
+
+# OS / editor
+.DS_Store
+.cursor/
+.vscode/
+.idea/
+*~
