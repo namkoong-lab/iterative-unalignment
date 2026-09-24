@@ -51,28 +51,6 @@ python methods/train.py "Once upon a time" 10 \
 
 All ground-truth probabilities (`gt_prob`) are available in the paper's appendix.
 
-## Cross-entropy methods
-
-| Update | `--proposal_type` | `--ce_importance_weighted` |
-| --- | --- | --- |
-| Algorithm 2: weighted likelihood gradient | `CE_MLE_ACTIVATION`, `CE_MLE_LOGIT`, `CE_MLE_LORA` | `true` (default) |
-| Unweighted likelihood gradient | Same as above | `false` |
-| Algorithm 3: Gaussian search | `CE_ACTIVATION`, `CE_LOGIT` | `false` (default) |
-
-Gradient fitting takes one SGD step on fixed elite trajectories by default.
-Use `--ce_mle_fit_lr` for its learning rate, `--ce_elite_ratio` for the elite
-fraction, and `--ce_mle_stop_event_rate` for the stopping target. LoRA uses
-`--use_lora`; steering uses `--no-use_lora`.
-
-Gaussian search updates the elite mean with `--ce_smoothing` and keeps
-`--ce_sigma_init` fixed. Both algorithms start from zero steering and evaluate
-fresh samples from the final frozen proposal. Evaluation always uses ordinary
-importance sampling, including when the adaptation update is unweighted.
-
-The CE AS and CE Logit launchers use 300 training steps. After 10 warmup steps,
-training stops early when the event ESS ratio is below 0.1 for two consecutive
-steps, each with at least two event hits.
-
 ## Citation
 
 ```bibtex
